@@ -1,2 +1,2 @@
 # discord-sarcasm-bot
-A discord bot that can understand and dish out sarcasm.
+A discord bot that can recognize and dish out sarcasm.
