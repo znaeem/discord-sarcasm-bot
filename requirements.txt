@@ -1,2 +1,4 @@
 python-dotenv~=0.19.2
 discord~=1.7.3
+tensorflow~=2.7.1
+keras~=2.7.0
