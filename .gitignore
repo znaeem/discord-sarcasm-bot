@@ -153,8 +153,5 @@ dmypy.json
 cython_debug/
 
 # Misc
-/sarcasm_detection/raw_data
-/sarcasm_detection/saved_models
-/sarcasm_detection/data.csv
-/sarcasm_detection/tokenizer_data.pkl
-
+/sarcasm_detection/data
+/sarcasm_detection/models

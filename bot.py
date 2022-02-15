@@ -1,8 +1,8 @@
 import os
 import random
 from dotenv import load_dotenv
-
 from discord.ext import commands
+import requests
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
@@ -17,9 +17,19 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
-    if message.content in ['F', 'f']:
+    if message.author == bot.user:
+        return
+
+    content = message.content
+    if content in ['F', 'f']:
         response = f'{message.author} has paid respects.'
         await message.channel.send(response)
+
+    else:
+        res = requests.post('http://127.0.0.1:5000/infer', data={'sentence': content})
+        is_sarcastic = res.json()['label']
+        if is_sarcastic:
+            await message.channel.send('That was a probably sarcasm.')
 
     await bot.process_commands(message)
 
