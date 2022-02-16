@@ -16,6 +16,6 @@ def hello_world():
 def infer():
     data = request.form
     sentence = data['sentence']
-    label = detector.infer(sentence)
-    res = jsonify({'label': label})
+    confidence, prediction = detector.infer(sentence)
+    res = jsonify({'confidence': str(confidence), 'prediction': prediction})
     return res

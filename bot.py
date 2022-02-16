@@ -27,7 +27,7 @@ async def on_message(message):
 
     else:
         res = requests.post('http://127.0.0.1:5000/infer', data={'sentence': content})
-        is_sarcastic = res.json()['label']
+        is_sarcastic = res.json()['prediction']
         if is_sarcastic:
             await message.channel.send('That was a probably sarcasm.')
 

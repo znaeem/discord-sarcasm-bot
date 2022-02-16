@@ -11,7 +11,7 @@ class SarcasmDetector:
         self.model = tf.keras.models.load_model(self.saved_path)
         self.predict = self.model.predict
 
-    def infer(self, sentence, threshold=0.7):
-        probability = self.predict([sentence])[0][0]
-        result = 1 if probability >= threshold else 0
-        return result
+    def infer(self, sentence, threshold=0.75):
+        confidence = self.predict([sentence])[0][0]
+        prediction = 1 if confidence >= threshold else 0
+        return confidence, prediction
